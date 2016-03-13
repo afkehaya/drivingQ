@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
   resources :questions do
     resources :answers do 
      post 'change_is_complete' => 'answers#change_is_complete'
     end
   end
   resources :answers 
-
-  
-
   root 'questions#index'
 
   get 'questions/:question_id/answers/new' => 'answers#new'
+
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

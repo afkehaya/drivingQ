@@ -1,6 +1,14 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+
+  config.omniauth :facebook, "494042987463983", "9e0a2b09d47005a720c3c74d991d7a45"
+  config.omniauth :twitter, " ArhMhKpCDZZPa1JWv5hJux3M3", "a2qcWzf3JmsR6FiAH1OpOLqjaYt3bkPa2kRKzRLu0lQfJjQXTN
+"
+  config.omniauth :linked_in, "75xh2px6f853ub", "4KBQtOwCfidVbqyo"
+
+  
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -124,7 +132,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]

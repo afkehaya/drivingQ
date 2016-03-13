@@ -1,0 +1,37 @@
+<div class="row">
+   <div class="col-md-8">
+      <h1>What question is driving you right now?</h1>
+      <%= link_to "Get Motivated", new_user_registration_path, class: "btn btn-lg btn-info" %>
+      <h2>How it works</h2>
+      <h5>Each day you should ask your self one critical question that drives you towards reaching your goal.</h5>
+      <h5>For Oracal's champion Sailboat raicing team it's "Does this make the boat go faster".</h5>
+      <h5>Create your driving question and then provide a list of tasks. If you ask your self your driving question about each task... the answer should be yes.</h5>
+
+      <h5>Use this app to stay focused and motivated. Track your questions and how many of your tasks you achieve each day.</h5>
+   </div>
+   <div class="col-md-4">
+      <h2>Focus on your goals for this week.</h2>
+      <h4> Each day you'll ask your driving question when deciding to spend time on a particilar task. If the answer is yes.. then do the task... if it's no.. find something better to do</h4>
+      <div class="questions-list">
+        <h5>Here's what your list might look like:</h5>
+            <ul>
+              <li>
+                <h3><%= link_to "Does this make the boat go faster?", new_user_registration_path %>
+                </h3>
+             </li>
+             <li>
+                <h3><%= link_to "Will this help me loose weight?", new_user_registration_path %>
+                </h3>
+             </li>
+             <li>
+                <h3><%= link_to "Does this get me more sales?", new_user_registration_path %>
+                </h3>
+             </li>
+              <li>
+                <h3><%= link_to "Will this add more subscribers?", new_user_registration_path %>
+                </h3>
+             </li>
+            </ul>
+      </div>
+   </div>
+ </div>

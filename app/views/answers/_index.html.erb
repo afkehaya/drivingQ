@@ -1,0 +1,10 @@
+
+
+<h1>Answers to your driving question</h2>
+<% @answers.each do |answer| %>
+	<h2><%= answer.answer %></h2>
+<% end %>
+<div>
+	<h3>Tasks to complete today</h3>
+	<h4><%= @answers.count %></h4>
+</div>

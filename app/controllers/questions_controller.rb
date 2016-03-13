@@ -11,6 +11,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @answers= @question.answers
+    @answer = @question.answers.new
   end
 
   # GET /questions/new
@@ -26,7 +28,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-
+    @question.user = current_user
     respond_to do |format|
       if @question.save
         format.html { redirect_to root_url, notice: 'Question was successfully created.' }

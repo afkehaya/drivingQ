@@ -1,17 +1,14 @@
 
 <p id="notice"><%= notice %></p>
-<%= render "new" %>
-<h1>Listing Questions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Question</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h1>What question is driving you right now?</h1>
 
-  <tbody>
+<%= render 'new' %>
+
+
+<h2>My Driving Questions</h2>
+
+  <div class="questions-list">
     <% @questions.each do |question| %>
       <tr>
         <td><%= question.question %></td>
@@ -20,10 +17,9 @@
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
+  </div>
 </table>
 
 <br>
 
-<%= link_to 'New Question', new_question_path, class: "btn btn-lg btn-success" %>
 

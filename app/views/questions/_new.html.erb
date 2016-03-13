@@ -1,5 +1,21 @@
-<h1>New Question</h1>
+<%= form_for(@question, :html => {:class => 'form-block'}) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', questions_path %>
+  <div class="form-input">
+    <%= f.text_field :question, class: "form-control" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Add my question", class: "btn btn-lg btn-info" %>
+  </div>
+<% end %>

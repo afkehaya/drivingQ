@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :questions do
-    resources :answers
+    resources :answers do 
+     post 'change_is_complete' => 'answers#change_is_complete'
+    end
   end
-  resources :answers
+  resources :answers 
 
   
 

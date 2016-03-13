@@ -2,9 +2,21 @@
 
 <h1>Answers to your driving question</h2>
 <% @answers.each do |answer| %>
-	<h2><%= answer.answer %></h2>
+	<h2><input type="checkbox" class="answer-checkbox" answer-id="<%= answer.id %>" question-id="<%= @question.id %>"></input><%= answer.answer %></h2>
 <% end %>
 <div>
 	<h3>Tasks to complete today</h3>
 	<h4><%= @answers.count %></h4>
 </div>
+
+
+<script>
+$(".answer-checkbox").change(function(){
+	var checkbox = $(this);
+	var answer_id = checkbox.attr("answer-id");
+	var question_id = checkbox.attr("question-id");
+	$.post('/questions/'+ question_id + '/answers/'+ answer_id + '/change_is_complete',{is_complete:this.checked}).error(function() { alert('Internal Server Error'); });
+	console.log("thht"); 
+});
+
+</script>

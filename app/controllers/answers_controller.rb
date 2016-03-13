@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
     end
 
 	def new
-		@question = Question.find(params[:question_id])
+		
 		@answer = @question.answers.new
 	end
 
@@ -22,8 +22,13 @@ class AnswersController < ApplicationController
 	end
 
 	def edit
-
 	end
+	def change_is_complete
+		@question = Question.find(params[:question_id])
+		@answer = @question.answers.find(params[:answer_id])
+		@answer.update! is_complete: params[:is_complete]
+		render plain: 'OK'
+	end 
 
 	def update
 	  respond_to do |format|

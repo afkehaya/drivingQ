@@ -27,7 +27,7 @@
          <li> <%= link_to "Account", edit_user_registration_path, class: "navbar-brand" %></li>
          <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-brand" %></li>
          <% else %>
-         <li><%= link_to user_omniauth_authorize_path(:twitter) do %>
+         <li class="hide"><%= link_to user_omniauth_authorize_path(:twitter) do %>
                 <img src="https://g.twimg.com/dev/sites/default/files/images_documentation/sign-in-with-twitter-link.png">
               <% end %>
           </li>

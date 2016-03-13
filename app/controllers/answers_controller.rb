@@ -3,11 +3,10 @@ class AnswersController < ApplicationController
 	
 
 	def index
-  	 @answer = @question.answers.all
+  	 @answer = @question.answers
     end
 
 	def new
-		
 		@answer = @question.answers.new
 	end
 
@@ -23,6 +22,7 @@ class AnswersController < ApplicationController
 
 	def edit
 	end
+
 	def change_is_complete
 		@question = Question.find(params[:question_id])
 		@answer = @question.answers.find(params[:answer_id])

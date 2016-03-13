@@ -11,8 +11,10 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    # this line keeps the answer from adding an extra checkbox.
+    question2 = Question.find(@question.id)
     @answers= @question.answers
-    @answer = @question.answers.new
+    @answer = question2.answers.new
   end
 
   # GET /questions/new
@@ -28,7 +30,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-    @question.user = current
+    @question.user = current_user
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }

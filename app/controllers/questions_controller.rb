@@ -4,12 +4,15 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
+    @question = Question.new
     @questions = Question.all
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @answers= @question.answers
+    @answer = @question.answers.new
   end
 
   # GET /questions/new

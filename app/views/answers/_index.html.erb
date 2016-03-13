@@ -1,12 +1,10 @@
 <h1>Answers to your driving question</h2>
+	<p class="answer-count">
+	   Tasks to complete today <%= @answers.count %>
+	</p>
 <% @answers.each do |answer| %>
 	<h2><input type="checkbox" class="answer-checkbox" answer-id="<%= answer.id %>" question-id="<%= @question.id %>"></input><%= answer.answer %></h2>
 <% end %>
-<div>
-	<h3>Tasks to complete today</h3>
-	<h4><%= @answers.count %></h4>
-</div>
-
 
 
 <script>

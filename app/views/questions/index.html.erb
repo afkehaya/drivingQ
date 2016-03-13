@@ -1,25 +1,40 @@
 
 <p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+ 
+  <div class="row">
+   <div class="col-md-8">
+      <h1>What question is driving you right now?</h1>
+      <div class="question-top">
+        <%= render 'new' %>
+      </div>
+      <h2>How it works</h2>
+      <h5>Each day you should ask your self one critical question that drives you towards reaching your goal.</h5>
+      <h5>For Oracal's champion Sailboat raicing team it's "Does this make the boat go faster".</h5>
+      <h5>Create your driving question and then provide a list of tasks. If you ask your self your driving question about each task... the answer should be yes.</h5>
 
-<h1>What question is driving you right now?</h1>
+      <h5>Use this app to stay focused and motivated. Track your questions and how many of your tasks you achieve each day.</h5>
+   </div>
 
-<%= render 'new' %>
-
-
-<h2>My Driving Questions</h2>
-
-  <div class="questions-list">
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.question %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+   <div class="col-md-4">
+     <div class="questions-list">
+        <h2>My Driving Questions</h2>
+          <% @questions.each do |question| %>
+            <ul>
+              <li>
+                <h3><%= link_to question.question, question %>
+                <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
+                <%= link_to '', question, class: "glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?'} %>
+                </h3>
+             </li>
+            </ul>
+          <% end %>
+      </div>
+    </div>
   </div>
-</table>
+<% end %>
 
-<br>
+   
+
 
 

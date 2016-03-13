@@ -1,12 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 
+<div class="row">
+	<h1>Ask your self: <span class="ask-your-self"><%= @question.question %></span></h1>
+   <div class="col-md-6">
+	  <%= render "answers/new" %>
+	  <div>
 
- <h1> <%= @question.question %></h1>
 
-<%= render "answers/new" %>
-<%= render "answers/index" %>
+	  	<br>
+	 	 <%= link_to 'Edit Question', edit_question_path(@question) %> |
+	  	<%= link_to 'Back', questions_path %>
+	  </div>
+   </div>
+   <div class="col-md-6">
+	  <%= render "answers/index" %>
+   </div>
 
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+

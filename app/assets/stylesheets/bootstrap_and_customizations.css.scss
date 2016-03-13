@@ -5,3 +5,33 @@
   src: url('/assets/glyphicons-halflings-regular.eot');
   src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+.question-top {
+	width: 80%;
+}
+.questions-list ul, li {
+	list-style-type: none;
+    list-style-position:inside;
+	text-align: left;
+	margin:0;
+	padding-left:0;
+    padding-bottom: 5px;
+
+}
+
+.questions-list a {
+	color: balck !important;
+}
+.questions-list a:hover {
+	color: balck;
+	text-decoration: none;
+}
+.questions-list .glyphicon {
+	font-size: 20px;
+}
+.answer-count {
+	color: #337ab7;
+}
+.ask-your-self {
+	color: #337ab7;
+}
+

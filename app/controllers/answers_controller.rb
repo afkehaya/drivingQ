@@ -4,10 +4,12 @@ class AnswersController < ApplicationController
 
 	def index
   	 @answer = @question.answers
+  	 authorize @answers
     end
 
 	def new
 		@answer = @question.answers.new
+		authorize @answer
 	end
 
 	def create
@@ -18,6 +20,7 @@ class AnswersController < ApplicationController
 	    else
 			redirect_to @question	
 	    end
+	    authorize @answer
 	end
 
 	def edit
@@ -28,6 +31,7 @@ class AnswersController < ApplicationController
 		@answer = @question.answers.find(params[:answer_id])
 		@answer.update! is_complete: params[:is_complete]
 		render plain: 'OK'
+		authorize @answer
 	end 
 
 	def update
@@ -55,6 +59,7 @@ class AnswersController < ApplicationController
 	 def set_answer
 	  @answer = Answer.find(params[:id])
 	  @question = Question.find(params[:question_id])
+	  authorize @answer
     end
 
 	def answer_params

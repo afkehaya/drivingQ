@@ -1,7 +1,7 @@
 
 <p id="notice"><%= notice %></p>
 <% if user_signed_in? %>
- 
+ <%= @user.name %>
   <div class="row">
    <div class="col-md-8">
       <h1>What question is driving you right now?</h1>
@@ -20,6 +20,7 @@
      <div class="questions-list">
         <h2>My Driving Questions</h2>
           <% @questions.each do |question| %>
+          <% if question.user == current_user %>
             <ul>
               <li>
                 <h3><%= link_to question.question, question %>
@@ -28,6 +29,7 @@
                 </h3>
              </li>
             </ul>
+            <% end %>
           <% end %>
       </div>
     </div>

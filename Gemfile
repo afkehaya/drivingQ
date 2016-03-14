@@ -12,6 +12,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'devise'
 
+# Pundit is used to setup the authorizations and control views. 
+gem "pundit"
+
+
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'

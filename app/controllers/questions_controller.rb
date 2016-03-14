@@ -1,25 +1,27 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
-  # GET /questions
-  # GET /questions.json
+  
   def index
+    @user = current_user
     @question = Question.new
     @questions = Question.all
+    authorize @questions
   end
 
-  # GET /questions/1
-  # GET /questions/1.json
   def show
     # this line keeps the answer from adding an extra checkbox.
     question2 = Question.find(@question.id)
     @answers= @question.answers
     @answer = question2.answers.new
+    @user = current_user
+    authorize @question
   end
 
   # GET /questions/new
   def new
     @question = Question.new
+    authorize @question
   end
 
   # GET /questions/1/edit
@@ -40,6 +42,7 @@ class QuestionsController < ApplicationController
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
+    authorize @question
   end
 
   # PATCH/PUT /questions/1
@@ -70,6 +73,7 @@ class QuestionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_question
       @question = Question.find(params[:id])
+      authorize @question
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

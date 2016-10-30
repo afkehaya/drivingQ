@@ -26,9 +26,9 @@
         <% if user_signed_in? %>
          <li> <%= link_to "Account", edit_user_registration_path, class: "navbar-brand" %></li>
          <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-brand" %></li>
-         <li class: "navbar-brand"><!-- ACTIONWINS -->
+         <li class= "navbar-brand"><!-- ACTIONWINS -->
          <div ng-app="f751207290374958b52d24dfa6a6568eApp" ng-controller="f751207290374958b52d24dfa6a6568eController">
-           <div ng-click="open()" style="color:blue">Refer A Friend</div>
+           <div ng-click="open()" style="color:#777">Refer A Friend</div>
            <script type="text/ng-template" id="actionwins-referral-modal">
            <style>
              .text-center {

@@ -27,7 +27,7 @@
          <li> <%= link_to "Account", edit_user_registration_path, class: "navbar-brand" %></li>
          <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-brand" %></li>
          <li class="navbar-brand"><!-- ACTIONWINS -->
-         <div ng-app="69fc4ede97924567b47222023271a0f7App" ng-controller="69fc4ede97924567b47222023271a0f7Controller">
+         <div ng-app="89686e2a86ee43fd90d231fe2fb14ecdApp" ng-controller="89686e2a86ee43fd90d231fe2fb14ecdController">
            <div ng-click="open()" style="color:blue">Refer A Friend</div>
            <script type="text/ng-template" id="actionwins-referral-modal">
            <style>
@@ -35,7 +35,6 @@
                text-align: center;
              }
              .share-link {
-               width: 155px;
                border: .5px;
                border-style: solid;
                margin: 0 auto;
@@ -59,39 +58,40 @@
            </style>
              <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
          <html><body>
-         <div id="referral_campaign_id" value="69fc4ede97924567b47222023271a0f7"></div>
-                   <div id="advocate" value="<%= current_user.email rescue nil %>"></div>
+         <div id="referral_campaign_id" value="89686e2a86ee43fd90d231fe2fb14ecd"></div>
+                   <div id="advocate" value="<%= current_user.email %>"></div>
+                   <div id="aw-stack" value="rails+devise"></div>
                    <div class="share-modal text-center">
-                   <div style="background-color: #ffffff" class="share-modal text-center back-change">
-                     <h2 style="color: #7679cf" class="text-change ng-binding">Refer-A-Friend</h2>
-                       <p style="color: #1ddec7" class="text-change2 ng-binding">Earn a Month Free</p>
+                   <div style="background-color: background color from in app referral" class="share-modal text-center back-change">
+                     <h2 style="color: #3439b3" class="text-change ng-binding">Refer-A-Ninja</h2>
+                       <p style="color: #1ddec7" class="text-change2 ng-binding">Earn One Month Free</p>
                        <!-- Share Buttons Should Match Button Color -->
                        <p>
                        <a id="fb_share_link" title="Facebook" href="https://www.facebook.com/sharer/sharer.php?u={{share_link}}"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a>
-                       <a id="twt_share_link" title="Twitter" href="http://twitter.com/share?text={{campaign_name}}" data-url="{{share_link}}" data-count="horizontal"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
+                       <a id="twt_share_link" title="Twitter" href="http://twitter.com/share?text={{campaign_name}} {{share_link}}" data-url="{{share_link}}" data-count="horizontal"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
 
                        <a id="linkedin_share_link" title="Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{share_link}}&amp;title={{campaign_name}}&amp;source=ActionWins"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a>
 
                          <a title="E-mail" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i ng-click="toggleEmail()" id="email-click" class="fa fa-envelope fa-stack-1x"></i></span></a>
                        </p>
-                       <div id="aw_share_link" class="share-link">{{share_link}}{{share_link.length &gt; 10 ? '...' : ''}}</div>
-                       <div ng-init="emailState = false" ng-show="emailState" class="email-send" style="display: block;">
+                       <div id="aw_share_link" class="share-link">{{share_link}}</div>
+                       <div ng-init="emailState = false" ng-show="emailState" class="email-send ng-hide">
                          <div class="form-group">
                            <p><strong>Enter Email Address</strong> </p>
-                           <input id="aw-referral-email" type="email" name="email" class="form-control" placeholder="friend@example.com">
+                           <input id="aw-referral-email" type="email" name="email" class="form-control" placeholder="email placeholder from in app referral">
                          </div>
                          <div class="form-group">
                            <p><strong>Email Subject</strong> </p>
-                           <input id="aw-referral-subject" type="text" name="subject" class="form-control" placeholder="example subject">
+                           <input id="aw-referral-subject" type="text" name="subject" class="form-control" placeholder="email body copy from in app referral">
                          </div>
                          <div class="form-group">
                            <label>Email Body </label>
-                           <input id="aw-referral-body" type="text" name="body" class="form-control" placeholder="email body copy from in app referral">
+                           <textarea id="aw-referral-body" type="text" name="body" class="form-control" placeholder="email body copy from in app referral"></textarea>
                          </div>
                          <button type="Send Email" value="send" name="sub" class="button-change button-text-change btn">Send Email</button>
                        </div>
                        <br>
-                       <p>You've referred <span ng-bind="ref_count" class="ng-binding"></span> friends</p>
+                       <p>You've referred <span ng-bind="ref_count" class="ng-binding">2</span> friends</p>
                        <!--
                        </br>
                        <div class="row modaltype1 reward-row text-center">
@@ -135,11 +135,11 @@
          <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
 
          <script type="text/javascript">
-           var ACTIONWINS_App = angular.module("69fc4ede97924567b47222023271a0f7App", ['ngDialog']);
-           ACTIONWINS_App.controller("69fc4ede97924567b47222023271a0f7Controller", function ($scope, ngDialog, $http) {
+           var ACTIONWINS_App = angular.module("89686e2a86ee43fd90d231fe2fb14ecdApp", ['ngDialog']);
+           ACTIONWINS_App.controller("89686e2a86ee43fd90d231fe2fb14ecdController", function ($scope, ngDialog, $http) {
 
-             $scope.campaign_name = 'My Test Campaign ScaleGrid.io';
-             $scope.campaign_id = '69fc4ede97924567b47222023271a0f7';
+             $scope.campaign_name = "Alex's test Campaign";
+             $scope.campaign_id = '89686e2a86ee43fd90d231fe2fb14ecd';
 
              $scope.get_share_link = function() {
                var myscript = document.querySelector('#actionwins-referral-modal');
@@ -151,6 +151,7 @@
                  $http({
                    method: 'GET',
                    url: 'https://sandbox.api.actionwins.co/sharelink?email=' + email + '&campaign_id=' + $scope.campaign_id
+                   // url: 'http://localhost:3000/sharelink?email=' + email + '&campaign_id=' + $scope.campaign_id
                  }).then(function successCallback(response) {
                    if (typeof response.data !== "undefined") {
                      if (response.data === "") {
@@ -161,6 +162,7 @@
                        $http({
                          method: 'GET',
                          url: 'https://sandbox.api.actionwins.co/optin?email=' + email + '&campaign_id=' + $scope.campaign_id
+                         //url: 'http://localhost:3000/optin?email=' + email + '&campaign_id=' + $scope.campaign_id
                        }).then(function successCallback(response1) {
                          if (typeof response1.data !== "undefined") {
                            $scope.share_link = response1.data;
@@ -190,6 +192,7 @@
                  $http({
                    method: 'GET',
                    url: 'https://sandbox.api.actionwins.co/ref_count?email=' + email + '&campaign_id=' + $scope.campaign_id
+                   // url: 'http://localhost:3000/ref_count?email=' + email + '&campaign_id=' + $scope.campaign_id
                  }).then(function successCallback(response) {
                    if (typeof response.data !== "undefined") {
                      $scope.ref_count = response.data;
@@ -206,7 +209,7 @@
                var new_dialog = ngDialog.open({
                  id: 'action-wins-dialog',
                  template: 'actionwins-referral-modal',
-                 controller: "69fc4ede97924567b47222023271a0f7Controller",
+                 controller: "89686e2a86ee43fd90d231fe2fb14ecdController",
                  scope: $scope
                });
              };
@@ -223,6 +226,7 @@
            });
          </script>
          <!-- /ACTIONWINS -->
+
 </li>
 
          <% else %>

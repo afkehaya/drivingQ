@@ -26,8 +26,8 @@
     </style>
 
               <div id="referral_campaign_id" value="11a18885f7e8481a91b76ba1c0d7f16c"></div>
-              <div id="advocate" value="unknown - replace me"></div>
-              <div id="aw-stack" value="unknown"></div>
+              <div id="advocate" value="<%= current_user.email rescue nil %>"></div>
+              <div id="aw-stack" value="rails_devise"></div>
               <div class="share-modal text-center">
                 <div style="background-color: background color from in app referral" class="share-modal text-center back-change">
                   <h2 style="color: #3439b3" class="text-change ng-binding">Refer-A-Ninja</h2>

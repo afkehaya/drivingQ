@@ -1,8 +1,8 @@
 <li class="navbar-brand">
   <!-- ACTIONWINS -->
-  <div ng-app="11a18885f7e8481a91b76ba1c0d7f16cApp" ng-controller="11a18885f7e8481a91b76ba1c0d7f16cController">
+  <div ng-app="a6e524e8b056441b8cbb924846cdbd28App" ng-controller="a6e524e8b056441b8cbb924846cdbd28Controller">
     <div ng-click="open()" style="color:blue">Refer A Friend</div>
-    <script type="text/ng-template" id="actionwins-referral-modal">
+    <script type="text/ng-template" id="actionwins-optin-modal">
     <style>
       .text-center {
         text-align: center;
@@ -25,44 +25,57 @@
       }
     </style>
 
-              <div id="referral_campaign_id" value="11a18885f7e8481a91b76ba1c0d7f16c"></div>
-              <div id="advocate" value="<%= current_user.email rescue nil %>"></div>
-              <div id="aw-stack" value="rails_devise"></div>
-              <div class="share-modal text-center">
-                <div style="background-color: #ffffff" class="share-modal text-center back-change">
-                  <h2 style="color: #3439b3" class="text-change ng-binding">Refer A Ninja</h2>
-                  <p style="color: #1ddec7" class="text-change2 ng-binding">earn 1 month free access</p>
+        <div id="optin_campaign_id" value="a6e524e8b056441b8cbb924846cdbd28"></div>
+        <div ng-hide="knownAdvocate" style="background-color: #39edd8" class="share-modal text-center back-change">
+          <h2 style="color: #00057d" class="text-change ng-binding">Pre-launch your startup</h2>
+          <p style="color: #29d9c4" class="text-change2 ng-binding">refer a friend and earn rewards</p>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <input id="aw-email" type="email" name="email" class="form-control" placeholder="alex@example.com">
+            <input id="aw-campaign" type="hidden" name="campaign" value="a6e524e8b056441b8cbb924846cdbd28">
+          </div>
+          <br>
+          <button ng-click="submitOptIn(); closeThisDialog()" style="background-color: #fd9eff" type="submit" value="sub" name="sub" class="button-change button-text-change btn"><span style="color: #ffffff" class="ng-binding">Sign Up</span></button>
+        </div> <!-- background color -->
+      <!-- break -->
+              <div id="referral_campaign_id" value="a6e524e8b056441b8cbb924846cdbd28"></div>
+              <div id="advocate" value=""></div>
+              <div ng-show="knownAdvocate" class="share-modal text-center">
+                <div style="background-color: #e6c8c8" class="share-modal text-center back-change">
+                  <h2 style="color: #3439b3" class="text-change ng-binding">Thanks for signing up</h2>
+                  <p style="color: #1ddec7" class="text-change2 ng-binding">Share this link with your friends and earn reawards</p>
                   <!-- Share Buttons Should Match Button Color -->
                   <p>
-                    <a id="fb_share_link" title="Facebook" href="https://www.facebook.com/dialog/feed?app_id=155874904884779&amp;redirect_url={{share_link|encodeUri}}&amp;link={{share_link|encodeUri}}&amp;name={{campaign_name|encodeUri}}&amp;ref=inapp" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a>
+                  <a id="fb_share_link" title="Facebook" href="https://www.facebook.com/dialog/feed?app_id=155874904884779&amp;redirect_url={{share_link|encodeUri}}&amp;link={{share_link|encodeUri}}&amp;name={{campaign_name|encodeUri}}&amp;ref=landing" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a>
 
-                    <a id="twt_share_link" title="Twitter" href="https://twitter.com/intent/tweet?url={{share_link|encodeUri}}&amp;text=%23GoViral" data-text="%23GoViral"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
-                    <a id="linkedin_share_link" title="Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{share_link}}&amp;title={{campaign_name}}&amp;source=ActionWins" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a>
-                    <a title="E-mail" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i ng-click="toggleEmail()" id="email-click" class="fa fa-envelope fa-stack-1x"></i></span></a>
+                  <a id="twt_share_link" title="Twitter" href="https://twitter.com/intent/tweet?url={{share_link|encodeUri}}&amp;text=%23goviral" data-text="%23goviral"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
+                  <a id="linkedin_share_link" title="Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{share_link|encodeUri}}&amp;title={{campaign_name}}&amp;source=ActionWins" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a>
+
+                  <a title="E-mail" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i ng-click="toggleEmail()" id="email-click" class="fa fa-envelope fa-stack-1x"></i></span></a>
+
                   </p>
                   <div class="click-clip" id="aw_share_link" data-clipboard-target="#aw_share_link" data-tooltip="click to copy">{{share_link}}</div>
                   <div ng-init="emailState = false" ng-show="emailState" class="email-send ng-hide">
                     <div class="form-group">
                       <p><strong>Email Address</strong> </p>
-                      <input id="aw-referral-email" type="email" name="email" class="form-control" placeholder="alex@example.com" value="alex@example.com">
+                      <input id="aw-optin-email" type="email" name="email" class="form-control" placeholder="alex@example.com" value="alex@example.com">
                     </div>
                     <div class="form-group">
                       <p><strong>Email Subject</strong> </p>
-                      <input id="aw-referral-subject" type="text" name="subject" class="form-control" placeholder="this is so cool" value="this is so cool">
+                      <input id="aw-optin-subject" type="text" name="subject" class="form-control" placeholder="This is awesome" value="This is awesome">
                     </div>
                     <div class="form-group">
                       <label>Email Body </label>
-                      <textarea id="aw-referral-body" type="text" name="body" class="form-control ng-binding" placeholder="check it out" value="check it out">check it out</textarea>
+                      <textarea id="aw-optin-body" type="text" name="body" class="form-control ng-binding" placeholder="Check this out!" value="Check this out!">Check this out!</textarea>
                     </div>
                     <button ng-click="sendEmail()" type="Send Email" value="send" name="sub" class="button-change button-text-change btn">Send Email</button>
+                    <br>
+                    <p>You've referred <span ng-bind="ref_count" class="ng-binding"></span> friends</p>
                   </div>
-                  <br>
-                  <p>You've referred <span ng-bind="ref_count" class="ng-binding">2</span> friends</p>
                 </div> <!-- background color -->
               </div> <!-- share modal text-center -->
 
     </script>
-
   </div>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog.min.css" />
@@ -73,104 +86,35 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/js/ngDialog.min.js"></script>
   <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
   <script type="text/javascript" src="https://api.actionwins.co/angular-encode-uri.min.js"></script>
+  <script type="text/javascript" src="https://api.actionwins.co/click.js"></script>
 
   <script type="text/javascript">
-    var ACTIONWINS_App = angular.module("11a18885f7e8481a91b76ba1c0d7f16cApp", ['ngDialog', 'rt.encodeuri']);
-    ACTIONWINS_App.controller("11a18885f7e8481a91b76ba1c0d7f16cController", function($scope, ngDialog, $http) {
+    var ACTIONWINS_App = angular.module("a6e524e8b056441b8cbb924846cdbd28App", ['ngDialog', 'rt.encodeuri']);
+    ACTIONWINS_App.controller("a6e524e8b056441b8cbb924846cdbd28Controller", function($scope, ngDialog, $http) {
 
-      $scope.get_share_link = function() {
-        var myscript = document.querySelector('#actionwins-referral-modal');
-        var new_element = document.createElement('html');
-        new_element.innerHTML = myscript.innerHTML;
-        var email = new_element.querySelector('#advocate').getAttribute('value');
+      $scope.campaign_name = "PreLaunch Demo";
+      $scope.campaign_id = 'a6e524e8b056441b8cbb924846cdbd28';
 
-        if (typeof email !== "undefined") {
-          $http({
-            method: 'GET',
-            url: 'https://api.actionwins.co/sharelink?email=' + email + '&campaign_id=' + $scope.campaign_id
-          }).then(function successCallback(response) {
-            if (typeof response.data !== "undefined") {
-              if ((response.data === "") || (response.data === "https://actionwins.co")) {
-                // probably, this is because the email in question isn't an advocate for
-                // this campaign; send an explicit opt-in for the email and campaign id
-                // to create an advocate, getting the share link that comes back when
-                // explicitly doing opt-in.  this is our one-time best effort for this case.
-                $http({
-                  method: 'GET',
-                  url: 'https://api.actionwins.co/optin?email=' + email + '&campaign_id=' + $scope.campaign_id
-                }).then(function successCallback(response1) {
-                  if (typeof response1.data !== "undefined") {
-                    $scope.share_link = response1.data;
-                  }
-                }, function errorCallback(response1) {
-                  $scope.share_link = "https://actionwins.co";
-                });
-              } else {
-                $scope.share_link = response.data;
-              }
-            } else {
-              $scope.share_link = "https://actionwins.co";
-            }
-          }, function errorCallback(response) {
-            $scope.share_link = "https://actionwins.co";
-          });
-        };
-      };
-
-      $scope.get_referral_count = function() {
-        var myscript = document.querySelector('#actionwins-referral-modal');
-        var new_element = document.createElement('html');
-        new_element.innerHTML = myscript.innerHTML;
-        var email = new_element.querySelector('#advocate').getAttribute('value');
-
-        if (typeof email !== "undefined") {
-          $http({
-            method: 'GET',
-            url: 'https://api.actionwins.co/ref_count?email=' + email + '&campaign_id=' + $scope.campaign_id
-          }).then(function successCallback(response) {
-            if (typeof response.data !== "undefined") {
-              $scope.ref_count = response.data;
-            } else {
-              $scope.ref_count = 0;
-            }
-          }, function errorCallback(response) {
-            $scope.ref_count = 0;
-          });
-        };
-      };
-
-      $scope.campaign_name = "8TKE Demo";
-      $scope.campaign_id = '11a18885f7e8481a91b76ba1c0d7f16c';
-
-      if ((typeof $scope.share_link === "undefined") || ($scope.share_link === "")) {
-        $scope.get_share_link();
-      }
-      if ((typeof $scope.ref_count === "undefined") || ($scope.ref_count === "")) {
-        $scope.get_referral_count();
-      }
-
-      $scope.sendEmail = function() {
-        var advocate_email = document.querySelector('#advocate').getAttribute('value');
-        var referred_email = document.querySelector('#aw-referral-email').value;
-        var subject = document.querySelector('#aw-referral-subject').value;
-        var body = document.querySelector('#aw-referral-body').value;
-
-        if (typeof referred_email !== "undefined") {
-          console.log('referred_email: ' + referred_email);
-          $http({
-            method: 'GET',
-            url: 'https://api.actionwins.co/share_email?advocate=' + advocate_email + '&referred=' + referred_email + '&campaign_id=' + $scope.campaign_id + '&subject=' + subject + '&body=' + body
-          }).finally(function () {
-            $scope.closeThisDialog('');
-          });
-        };
+      $scope.advCookie = getCookie('aw_adv');
+      if (($scope.advCookie !== "undefined") && ($scope.advCookie !== "")) {
+        $scope.knownAdvocate = true;
+        $http({
+          url: 'https://api.actionwins.co/opt_info?cai_id=' + $scope.advCookie + '&campaign_id=' + $scope.campaign_id
+        }).then(function successCallback(response) {
+          // console.log('response data: ' + response.data);
+          $scope.advocate_email = response.data.split('|')[0];
+          $scope.ref_count = response.data.split('|')[1];
+          $scope.share_link = response.data.split('|')[2];
+        });
+      } else {
+        $scope.knownAdvocate = false;
       };
 
       $scope.open = function() {
         var new_dialog = ngDialog.open({
           id: 'action-wins-dialog',
-          template: 'actionwins-referral-modal',
-          controller: "11a18885f7e8481a91b76ba1c0d7f16cController",
+          template: 'actionwins-optin-modal',
+          controller: "a6e524e8b056441b8cbb924846cdbd28Controller",
           scope: $scope
         });
       };
@@ -179,12 +123,44 @@
         $scope.emailState = !$scope.emailState;
       };
 
-      /***
-      angular.element(document).ready(function () {
-        $scope.get_share_link();
-        $scope.get_referral_count();
-      });
-      ***/
+      $scope.submitOptIn = function() {
+        var email = angular.element(document.querySelector('#aw-email')).val();
+        var campaign = angular.element(document.querySelector('#aw-campaign')).val();
+        $http({
+          method: 'GET',
+          url: 'https://api.actionwins.co/optin?email=' + email + '&campaign_id=' + $scope.campaign_id
+        }).then(function successCallback(response) {
+          console.log('success');
+          console.log('response data: ' + response.data);
+          if (typeof response.data !== "undefined") {
+            $scope.share_link = response.data;
+            cookie_val = response.data.split('ref=')[1];
+            console.log('cookie value: ' + cookie_val);
+            simpleSetCookie('aw_adv', cookie_val);
+            $scope.knownAdvocate = true;
+          }
+        }, function errorCallback(response) {
+          console.log('error');
+          console.log('response: ' + response);
+        });
+      };
+
+      $scope.sendEmail = function() {
+        var advocate_email = document.querySelector('#advocate').getAttribute('value');
+        var referred_email = document.querySelector('#aw-optin-email').value;
+        var subject = document.querySelector('#aw-optin-subject').value;
+        var body = document.querySelector('#aw-optin-body').value;
+
+        if (typeof referred_email !== "undefined") {
+          console.log('referred_email: ' + referred_email);
+          $http({
+            method: 'GET',
+            url: 'https://api.actionwins.co/share_email?advocate=' + $scope.advocate_email + '&referred=' + referred_email + '&campaign_id=' + $scope.campaign_id + '&subject=' + subject + '&body=' + body
+          }).finally(function () {
+            $scope.closeThisDialog('');
+          });
+        };
+      };
 
     });
   </script>

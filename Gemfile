@@ -12,7 +12,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'devise'
 
-# Pundit is used to setup the authorizations and control views. 
+# Pundit is used to setup the authorizations and control views.
 gem "pundit"
 
 
@@ -63,5 +63,3 @@ group :production do
      gem 'pg'
      gem 'rails_12factor'
 end
-
-

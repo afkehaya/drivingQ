@@ -16,9 +16,7 @@ gem 'devise'
 gem "pundit"
 
 
-gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'omniauth-linkedin'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

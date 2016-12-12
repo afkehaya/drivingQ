@@ -1,7 +1,6 @@
 
 <p id="notice"><%= notice %></p>
 <% if user_signed_in? %>
-<script id="aw-convert-script" type="text/javascript" data-referred="<%= current_user.email %>" src="https://api.actionwins.co/convert.js"></script>
 
  <%= @user.name %>
   <div class="row">
@@ -10,10 +9,13 @@
       <div class="question-top">
         <%= render 'new' %>
       </div>
-      <h2>How it works</h2>
-      <h4>Just create an account and you'll see a refer-a-friend link show up in the nav-bar. Click that link and share with one of your friends</h4>
-      <h4>For each person you share with, you'll see your referral count go up by one.</h4>
-
+      <div class="demo-walk">
+        <h2>How it works</h2>
+        <h4>Now that you've created your account, you have access to the referral widget. Click the button bellow and share the link with a friend.</h4>
+        <h4>When your friend visits the <strong>success page</strong> on the nav bar our software will count that as a successful referral</h4>
+        <h4>For each person you refer, you'll see your referral count go up by one and earn rewards.</h4>
+          <%= render 'layouts/refer' %>
+      </div>
       <h3>About DrivingQ</h3>
       <h4>This is a fictional software product that we created to show you how our referral widget works.</h4>
       <h5>Each day you should ask yourself one critical question that drives you towards reaching your goal.</h5>

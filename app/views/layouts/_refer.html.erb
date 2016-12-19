@@ -1,5 +1,5 @@
 <!-- ACTIONWINS -->
-<div ng-app="022f1875d99841329d8539441f4e6f84App" ng-controller="022f1875d99841329d8539441f4e6f84Controller">
+<div ng-app="337ae2ff0b57418b83fe4293be6d4609App" ng-controller="337ae2ff0b57418b83fe4293be6d4609Controller">
   <div ng-click="open()" class="btn btn-lg btn-warning">Refer A Friend</div>
   <script type="text/ng-template" id="actionwins-referral-modal">
   <style>
@@ -23,23 +23,23 @@
     }
   </style>
 
-            <div id="referral_campaign_id" value="022f1875d99841329d8539441f4e6f84"></div>
+            <div id="referral_campaign_id" value="337ae2ff0b57418b83fe4293be6d4609"></div>
             <div id="advocate" value="<%= current_user.email rescue nil %>"></div>
             <div id="aw-stack" value="rails_devise"></div>
-            <div id="fb_msg" value="I'm trying out this referral marketing software so we can make our product go viral! Check it out."></div>
-            <div id="twt_msg" value="I'm going to make my product go #viral #ActionWins @Action_Wins #Referral #Marketing"></div>
-            <div id="li_msg" value="I'm trying out this referral marketing software so we can make our product go viral! Check it out."></div>
+            <div id="fb_msg" value="I'm testing out ActionWins' referral marketing software. Check out the test product they made."></div>
+            <div id="twt_msg" value="We're going viral with @Action_Wins #GoViral #DMO #SaaS #DrivingQ"></div>
+            <div id="li_msg" value="I'm testing out ActionWins' referral marketing software. Check out the test product they made."></div>
             <div class="share-modal text-center">
-              <div style="background-color: #ffffff" class="share-modal text-center back-change">
-                <h2 style="color: #3439b3" class="text-change ng-binding">Refer A Friend</h2>
+              <div style="background-color: background color from in app referral" class="share-modal text-center back-change">
+                <h2 style="color: #3439b3" class="text-change ng-binding">Refer A Friend and Earn Rewards</h2>
 <br>
-                <p style="color: #000000" class="text-change2 ng-binding">Earn Rewards For Each Friend You Sign Up</p>
+                <p style="color: #000000" class="text-change2 ng-binding">Just share the link below with your friends.</p>
 <br>
                 <!-- Share Buttons Should Match Button Color -->
                 <p>
-                  <a id="fb_share_link" title="Facebook" href="https://www.facebook.com/dialog/feed?app_id=155874904884779&amp;link={{share_link|encodeUri}}&amp;redirect_url={{share_link|encodeUri}}&amp;name={{fb_msg|encodeUri}}&amp;caption=I'm trying out this referral marketing software so we can make our product go viral! Check it out.&amp;ref=inapp&amp;picture=https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=200%C3%97200&amp;w=200&amp;h=200" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a>
-                  <a id="twt_share_link" title="Twitter" href="https://twitter.com/intent/tweet?url={{share_link|encodeUri}}&amp;text=I'm going to make my product go %23viral %23ActionWins @Action_Wins %23Referral %23Marketing" data-text="I'm going to make my product go %23viral %23ActionWins %40Action_Wins %23Referral %23Marketing"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
-                  <a id="linkedin_share_link" title="Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{share_link}}&amp;title=I'm trying out this referral marketing software so we can make our product go viral! Check it out.&amp;summary=I'm trying out this referral marketing software so we can make our product go viral! Check it out.&amp;source=ActionWins" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a>
+                  <a id="fb_share_link" title="Facebook" href="https://www.facebook.com/dialog/feed?app_id=155874904884779&amp;link={{share_link|encodeUri}}&amp;redirect_url={{share_link|encodeUri}}&amp;name={{fb_msg|encodeUri}}&amp;caption=I'm testing out ActionWins' referral marketing software. Check out the test product they made.&amp;ref=inapp&amp;picture=https://placeholdit.imgix.net/~text?txtsize=33&amp;txt=200%C3%97200&amp;w=200&amp;h=200" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a>
+                  <a id="twt_share_link" title="Twitter" href="https://twitter.com/intent/tweet?url={{share_link|encodeUri}}&amp;text=We're going viral with @Action_Wins %23GoViral %23DMO %23SaaS %23DrivingQ" data-text="We're going viral with %40Action_Wins %23GoViral %23DMO %23SaaS %23DrivingQ"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
+                  <a id="linkedin_share_link" title="Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{share_link}}&amp;title=I'm testing out ActionWins' referral marketing software. Check out the test product they made.&amp;summary=I'm testing out ActionWins' referral marketing software. Check out the test product they made.&amp;source=ActionWins" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a>
                   <a title="E-mail" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i ng-click="toggleEmail()" id="email-click" class="fa fa-envelope fa-stack-1x"></i></span></a>
                 </p>
                 <div class="click-clip" id="aw_share_link" data-clipboard-target="#aw_share_link" data-tooltip="click to copy">{{share_link}}</div>
@@ -50,11 +50,11 @@
                   </div>
                   <div class="form-group">
                     <p><strong>Email Subject</strong> </p>
-                    <input id="aw-referral-subject" type="text" name="subject" class="form-control" placeholder="I'm testing out ActionWins" value="I'm testing out ActionWins">
+                    <input id="aw-referral-subject" type="text" name="subject" class="form-control" placeholder="I'm testing out a referral marketing software for our business. Take a look!" value="I'm testing out a referral marketing software for our business. Take a look!">
                   </div>
                   <div class="form-group">
                     <label>Email Body </label>
-                    <textarea id="aw-referral-body" type="text" name="body" class="form-control ng-binding" placeholder="I'm trying out this referral marketing software so we can make our product go viral! Check it out." value="I'm trying out this referral marketing software so we can make our product go viral! Check it out.">I'm trying out this referral marketing software so we can make our product go viral! Check it out.</textarea>
+                    <textarea id="aw-referral-body" type="text" name="body" class="form-control ng-binding" placeholder="Hey, I'm checking out this referral marketing software called ActionWins.co. Click the link and sign up so we can test it out!" value="Hey, I'm checking out this referral marketing software called ActionWins.co. Click the link and sign up so we can test it out!">Hey, I'm checking out this referral marketing software called ActionWins.co. Click the link and sign up so we can test it out!</textarea>
                   </div>
                   <button ng-click="sendEmail()" type="Send Email" value="send" name="sub" class="button-change button-text-change btn">Send Email</button>
                 </div>
@@ -81,19 +81,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog-theme-default.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog-theme-plain.min.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="https://api.actionwins.co/angular-tooltips.min.css"/>
+<link rel="stylesheet" href="https://api.actionwins.co/tooltips.css"/>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/js/ngDialog.min.js"></script>
 <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
 <script type="text/javascript" src="https://api.actionwins.co/angular-encode-uri.min.js"></script>
 <script type="text/javascript" src="https://api.actionwins.co/ng-order-object-by.js"></script>
-<script type="text/javascript" src="https://api.actionwins.co/angular-tooltips.min.js"></script>
 <script type="text/javascript" src="https://api.actionwins.co/clipboard.min.js"></script>
 
 <script type="text/javascript">
-var ACTIONWINS_App = angular.module("022f1875d99841329d8539441f4e6f84App", ['ngDialog', 'rt.encodeuri',
-                                                                 'ngOrderObjectBy', '720kb.tooltips']);
-  ACTIONWINS_App.controller("022f1875d99841329d8539441f4e6f84Controller", function($scope, ngDialog, $http) {
+var ACTIONWINS_App = angular.module("337ae2ff0b57418b83fe4293be6d4609App", ['ngDialog', 'rt.encodeuri',
+                                                                 'ngOrderObjectBy']);
+  ACTIONWINS_App.controller("337ae2ff0b57418b83fe4293be6d4609Controller", function($scope, ngDialog, $http) {
 
     var clipboard = new Clipboard('.click-clip');
 
@@ -187,8 +187,8 @@ var ACTIONWINS_App = angular.module("022f1875d99841329d8539441f4e6f84App", ['ngD
       };
     };
 
-    $scope.campaign_name = "DrivingQ Live";
-    $scope.campaign_id = '022f1875d99841329d8539441f4e6f84';
+    $scope.campaign_name = "Demo DrivingQ 3";
+    $scope.campaign_id = '337ae2ff0b57418b83fe4293be6d4609';
 
     if ((typeof $scope.share_link === "undefined") || ($scope.share_link === "")) {
       $scope.get_share_link();
@@ -220,7 +220,7 @@ var ACTIONWINS_App = angular.module("022f1875d99841329d8539441f4e6f84App", ['ngD
       var new_dialog = ngDialog.open({
         id: 'action-wins-dialog',
         template: 'actionwins-referral-modal',
-        controller: "022f1875d99841329d8539441f4e6f84Controller",
+        controller: "337ae2ff0b57418b83fe4293be6d4609Controller",
         scope: $scope
       });
     };

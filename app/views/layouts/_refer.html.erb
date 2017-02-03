@@ -1,6 +1,6 @@
 <!-- ACTIONWINS -->
-<div ng-app="48b0d73b382f429d91509bb943c1a46aApp" ng-controller="48b0d73b382f429d91509bb943c1a46aController">
-<div ng-click="open()" onmouseover="this.style.cursor='hand';" onmouseout="this.style.cursor='pointer'; this.style.fontWeight='normal'" class="btn btn-lg btn-warning">Refer A Friend</div>
+<div ng-app="e658201ada814475bc3eaf543a462291App" ng-controller="e658201ada814475bc3eaf543a462291Controller">
+  <div ng-click="open()" onmouseover="this.style.cursor='hand';" onmouseout="this.style.cursor='pointer'; this.style.color='#0d097c'; this.style.fontWeight='normal'" style="color:#0d097c">Refer A Friend</div>
   <script type="text/ng-template" id="actionwins-referral-modal">
   <style>
     .text-center {
@@ -22,38 +22,50 @@
     }
   </style>
 
-            <div id="referral_campaign_id" value="48b0d73b382f429d91509bb943c1a46a"></div>
+            <div id="referral_campaign_id" value="e658201ada814475bc3eaf543a462291"></div>
             <div id="advocate" value="<%= current_user.email rescue nil %>"></div>
             <div id="aw-stack" value="rails_devise"></div>
-            <div id="fb_msg" value="I'm testing out referral marketing for my business. Check this out!"></div>
-            <div id="twt_msg" value="#ActionWins #referral #marketing I'm testing out @Action_Wins"></div>
-            <div id="li_msg" value="I'm testing out referral marketing for my business. Check this out!"></div>
-            <div id="bgcolor" value="#ffeded"></div>
+            <div id="fb_msg" value="I'm joining an awesome SaaS GrowthHacking community check it out!"></div>
+            <div id="twt_msg" value="I'm joining an awesome #SaaS #GrowthHacking community check it out! @action_wins"></div>
+            <div id="li_msg" value="I'm joining an awesome SaaS GrowthHacking community check it out!"></div>
+            <div id="bgcolor" value="#ffffff"></div>
             <div class="share-modal text-center">
-              <div style="background-color: #ffeded" class="share-modal text-center back-change">
-                <h2 style="color: #000aff" class="text-change ng-binding">Refer a friend and earn rewards</h2>
+              <div style="background-color: #ffffff" class="share-modal text-center back-change">
+                <h2 style="color: #3439b3" class="text-change ng-binding">Refer A Friend And Earn $1,000 In SaaS Community Rewards</h2>
 <br>
-                <p style="color: #000000" class="text-change2 ng-binding">Share the link below. Each person who uses the link to sign up will earn you rewards. Let us know if you have any questions!</p>
+                <p style="color: #000000" class="text-change2 ng-binding">Each person you refer grows our community and the value we can bring to each member. We appreciate your help! #Growth</p>
 <br>
                 <p>
                   <a style="color: #337ab7" id="fb_share_link" title="Facebook" href="https://www.facebook.com/dialog/feed?app_id=155874904884779&amp;redirect_url={{share_link|encodeUri}}&amp;link={{share_link|encodeUri}}&amp;name=Add your custom message for Facebook sharing&amp;ref=inapp" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a>
-                  <a style="color: #337ab7" id="twt_share_link" title="Twitter" href="https://twitter.com/intent/tweet?url={{share_link|encodeUri}}&amp;text=Add your custom message for Twitter sharing" data-text="%23ActionWins %23referral %23marketing I'm testing out %40Action_Wins"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
+                  <a style="color: #337ab7" id="twt_share_link" title="Twitter" href="https://twitter.com/intent/tweet?url={{share_link|encodeUri}}&amp;text=Add your custom message for Twitter sharing" data-text="I'm joining an awesome %23SaaS %23GrowthHacking community check it out! %40action_wins"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
                   <a style="color: #337ab7" id="linkedin_share_link" title="Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{share_link}}&amp;title=Add your custom message for LinkedIn sharing&amp;summary=Add your custom message for LinkedIn sharing&amp;source=ActionWins" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a>
                   <a style="color: #337ab7" title="E-mail" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i ng-click="toggleEmail()" id="email-click" class="fa fa-envelope fa-stack-1x"></i></span></a>
                 </p>
                 <div class="click-clip" id="aw_share_link" data-clipboard-target="#aw_share_link" data-tooltip="click to copy">{{share_link}}</div>
-                <div ng-init="emailState = false" ng-show="emailState" class="email-send ng-hide">
+                <div ng-init="emailState = false" ng-show="emailState" class="ng-hide">
                   <div class="form-group">
                     <p><strong>Email Address</strong> </p>
-                    <input id="aw-referral-email" type="email" name="email" class="form-control" placeholder="referral@example.com" value="referral@example.com">
+                    <input id="aw-referral-email" type="email" name="email" class="form-control" placeholder="friend@example.com" value="friend@example.com">
                   </div>
                   <div class="form-group">
                     <p><strong>Email Subject</strong> </p>
-                    <input id="aw-referral-subject" type="text" name="subject" class="form-control" placeholder="Check out this awesome referral program I just found." value="Check out this awesome referral program I just found.">
+                    <input id="aw-referral-subject" type="text" name="subject" class="form-control" placeholder="Join SaaS Growth Hacks Community" value="Join SaaS Growth Hacks Community">
                   </div>
                   <div class="form-group">
                     <label>Email Body </label>
-                    <textarea id="aw-referral-body" type="text" name="body" class="form-control ng-binding" placeholder="Hey, I'm testing out this referral marketing software called ActionWins. Just click the link and sign up so I can see how it works." value="Hey, I'm testing out this referral marketing software called ActionWins. Just click the link and sign up so I can see how it works.">Hey, I'm testing out this referral marketing software called ActionWins. Just click the link and sign up so I can see how it works.</textarea>
+                    <textarea id="aw-referral-body" type="text" name="body" class="form-control ng-binding" placeholder="Hey,
+
+I belong to a thriving community of high-level SaaS Founders, Executives, and Heads of Growth. I think it would be a perfect fit for you. Members get exclusive access to discounted and free products/services made by the community as well as our private Facebook group.
+
+I think you'll really benefit from joining! Just click the link in this email to join." value="Hey,
+
+I belong to a thriving community of high-level SaaS Founders, Executives, and Heads of Growth. I think it would be a perfect fit for you. Members get exclusive access to discounted and free products/services made by the community as well as our private Facebook group.
+
+I think you'll really benefit from joining! Just click the link in this email to join.">Hey,
+
+I belong to a thriving community of high-level SaaS Founders, Executives, and Heads of Growth. I think it would be a perfect fit for you. Members get exclusive access to discounted and free products/services made by the community as well as our private Facebook group.
+
+I think you'll really benefit from joining! Just click the link in this email to join.</textarea>
                   </div>
                   <button ng-click="sendEmail()" type="Send Email" style="background-color: #d1cfcf; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;" value="send" name="sub" class="button-change button-text-change btn">Send Email</button>
                 </div>
@@ -90,9 +102,9 @@
 <script type="text/javascript" src="https://api.actionwins.co/clipboard.min.js"></script>
 
 <script type="text/javascript">
-var ACTIONWINS_App = angular.module("48b0d73b382f429d91509bb943c1a46aApp", ['ngDialog', 'rt.encodeuri',
+var ACTIONWINS_App = angular.module("e658201ada814475bc3eaf543a462291App", ['ngDialog', 'rt.encodeuri',
                                                                  'ngOrderObjectBy']);
-  ACTIONWINS_App.controller("48b0d73b382f429d91509bb943c1a46aController", function($scope, ngDialog, $timeout, $http) {
+  ACTIONWINS_App.controller("e658201ada814475bc3eaf543a462291Controller", function($scope, ngDialog, $timeout, $http) {
 
     var clipboard = new Clipboard('.click-clip');
 
@@ -190,8 +202,8 @@ var ACTIONWINS_App = angular.module("48b0d73b382f429d91509bb943c1a46aApp", ['ngD
       };
     };
 
-    $scope.campaign_name = "DEMO Campaign DrivingQ 3";
-    $scope.campaign_id = '48b0d73b382f429d91509bb943c1a46a';
+    $scope.campaign_name = "SaaS Growth Hacks Referral Campaign";
+    $scope.campaign_id = 'e658201ada814475bc3eaf543a462291';
 
     $scope.get_share_link();
     $scope.get_referral_count();
@@ -223,7 +235,7 @@ var ACTIONWINS_App = angular.module("48b0d73b382f429d91509bb943c1a46aApp", ['ngD
       var new_dialog = ngDialog.open({
         id: 'action-wins-dialog',
         template: 'actionwins-referral-modal',
-        controller: "48b0d73b382f429d91509bb943c1a46aController",
+        controller: "e658201ada814475bc3eaf543a462291Controller",
         className: 'ngdialog-theme-plain',
         background: 'transparent',
         scope: $scope

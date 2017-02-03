@@ -1,0 +1,16 @@
+current directory: /Users/alexanderkehaya/Desktop/drivingq/vendor/ruby/2.4.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+/Users/alexanderkehaya/.rbenv/versions/2.4.0/bin/ruby -r ./siteconf20170202-34468-1ljl65w.rb extconf.rb
+
+current directory: /Users/alexanderkehaya/Desktop/drivingq/vendor/ruby/2.4.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+current directory: /Users/alexanderkehaya/Desktop/drivingq/vendor/ruby/2.4.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /Users/alexanderkehaya/Desktop/drivingq/vendor/ruby/2.4.0/gems/binding_of_caller-0.7.2/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.

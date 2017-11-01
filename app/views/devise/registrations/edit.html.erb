@@ -1,7 +1,7 @@
 <div class="container">
   <div class="demo-walk">
 
-    <script id="aw-convert-script" type="text/javascript" data-referred="<%= @user.hashed_user %>" src="http://test.api.actionwins.co/convert.js"></script>
+    <script id="aw-convert-script" type="text/javascript" data-referred="<%= current_user.email %>" src="https://api.actionwins.co/convert.js"></script>
 
     <h2>Success!</h2>
     <p>Go check your referral widget (the one you sent the link from) and you'll see that your referral count wet up by one.</p>

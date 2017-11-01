@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable  
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
          has_many :questions
 
@@ -53,6 +53,9 @@ class User < ActiveRecord::Base
     user
   end
 
+  def hashed_user
+    Digest::MD5.hexdigest(email)
+  end
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end

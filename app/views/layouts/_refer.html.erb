@@ -1,0 +1,242 @@
+<!-- ACTIONWINS -->
+<div ng-app="1c1f982aafa84a83a14226ba9fb78382App" ng-controller="1c1f982aafa84a83a14226ba9fb78382Controller">
+  <div ng-click="open()" onmouseover="this.style.cursor='hand';" onmouseout="this.style.cursor='pointer'" class="btn btn-lg btn-info">Refer A Friend</div>
+  <script type="text/ng-template" id="actionwins-referral-modal">
+  <style>
+    .text-center {
+      text-align: center;
+    }
+    .share-modal {
+      display: block;
+      background-color: #ffffff;
+      padding: 0%;
+      border-color: #e7eaec;
+      border-width: 1px 0;
+      font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #2f4050;
+      font-size: 13px;
+      overflow-x: hidden;
+      line-height: 1.42857143;
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+  </style>
+
+            <div id="referral_campaign_id" value="1c1f982aafa84a83a14226ba9fb78382"></div>
+            <div id="advocate" value="<%= current_user.email rescue nil %>"></div>
+            <div id="aw-stack" value="rails_devise"></div>
+            <div id="loggedin_fb_msg" value="I'm testing out this really cool viral marketing tool"></div>
+            <div id="loggedin_twt_msg" value="#goViral!"></div>
+            <div id="loggedin_li_msg" value="I'm testing out this really cool viral marketing tool"></div>
+            <div id="bgcolor" value="#ffffff"></div>
+            <div style="color: #000000" class="share-modal text-center">
+              <div style="background-color: #ffffff" class="share-modal text-center back-change">
+                <h2 style="color: #141533" class="text-change ng-binding">Refer your friends and earn rewards</h2>
+<br>
+                <p style="color: #000000" class="text-change2 ng-binding">This is an example of our in-app referral widget. Just copy the link and share it in incognito mode on chrome or with a friend to test.</p>
+<br>
+                <p>
+                <a style="color: #000000" id="fb_share_link" title="Facebook" href="https://www.facebook.com/dialog/feed?app_id=155874904884779&amp;redirect_url={{share_link|encodeUri}}&amp;link={{share_link|encodeUri}}&amp;name=I'm testing out this really cool viral marketing tool&amp;ref=inapp" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a>
+                <a style="color: #000000" id="twt_share_link" title="Twitter" href="https://twitter.com/intent/tweet?url={{share_link|encodeUri}}&amp;text=%23goViral!" data-text="%23goViral!"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
+                <a style="color: #000000" id="linkedin_share_link" title="Linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{share_link}}&amp;title=I'm testing out this really cool viral marketing tool&amp;summary=I'm testing out this really cool viral marketing tool&amp;source=ActionWins" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a>
+                <a style="color: #000000" title="E-mail" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i ng-click="toggleEmail()" id="email-click" class="fa fa-envelope fa-stack-1x"></i></span></a>
+                </p>
+                <div class="click-clip" id="aw_share_link" data-clipboard-target="#aw_share_link" data-tooltip="click to copy">{{share_link}}</div>
+                <div ng-init="emailState = false" ng-show="emailState" class="ng-hide">
+                  <div class="form-group">
+                    <p><strong>Email Address</strong> </p>
+                    <input id="aw-referral-email" type="email" name="email" class="form-control" placeholder="referral@example.com" value="referral@example.com">
+                  </div>
+                  <div class="form-group">
+                    <p><strong>Email Subject</strong> </p>
+                    <input id="aw-referral-subject" type="text" name="subject" class="form-control" placeholder="Check out this cool referral tool I'm using." value="Check out this cool referral tool I'm using.">
+                  </div>
+                  <div class="form-group">
+                    <p><strong>Email Body </strong></p>
+                    <textarea id="aw-referral-body" type="text" name="body" class="form-control ng-binding" placeholder="This is just a test. Click the link below and sign up!" value="This is just a test. Click the link below and sign up!">This is just a test. Click the link below and sign up!</textarea>
+                  </div>
+                  <button ng-click="sendEmail()" type="Send Email" style="background-color: #d1cfcf; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;" value="send" name="sub" class="button-change button-text-change btn">Send Email</button>
+                </div>
+                <br><p>You've referred <span ng-bind="ref_count || 0" class="ng-binding">2</span> friends</p>
+                <span id="aw-reward-repeat" ng-repeat="reward in rewards | orderObjectBy : 'threshold' : false" class="ng-scope">
+                    <span id="aw-tooltip" data-tooltip="{{reward.name}} / {{reward.threshold}} {{reward.threshold &gt; 1 ? 'referrals' : 'referral'}}" class="fa-stack fa-lg">
+                      <div id="aw-reward-display">
+                        <i ng-class="reward.achieved ? 'fa fa-star' : 'fa fa-star-o'" class="fa fa-star"></i>
+                      </div>
+                    </span>
+                </span>
+                <div style="text-align: center; display: block">
+                <!-- ngRepeat: reward in rewards | orderObjectBy : 'threshold' : false --><!-- end ngRepeat: reward in rewards | orderObjectBy : 'threshold' : false --><!-- end ngRepeat: reward in rewards | orderObjectBy : 'threshold' : false --><!-- end ngRepeat: reward in rewards | orderObjectBy : 'threshold' : false -->
+                </div>
+                <br>
+              </div> <!-- background color -->
+            </div> <!-- share modal text-center -->
+
+  </script>
+
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog-theme-default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog-theme-plain.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://api.actionwins.co/tooltips.css"/>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/js/ngDialog.min.js"></script>
+<script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript" src="https://api.actionwins.co/angular-encode-uri.min.js"></script>
+<script type="text/javascript" src="https://api.actionwins.co/ng-order-object-by.js"></script>
+<script type="text/javascript" src="https://api.actionwins.co/clipboard.min.js"></script>
+
+<script type="text/javascript">
+var ACTIONWINS_App = angular.module("1c1f982aafa84a83a14226ba9fb78382App", ['ngDialog', 'rt.encodeuri',
+                                                                 'ngOrderObjectBy']);
+  ACTIONWINS_App.controller("1c1f982aafa84a83a14226ba9fb78382Controller", function($scope, ngDialog, $timeout, $http) {
+
+    var clipboard = new Clipboard('.click-clip');
+
+    $scope.rewards = [];
+
+    $scope.get_share_link = function() {
+      var myscript = document.querySelector('#actionwins-referral-modal');
+      var new_element = document.createElement('html');
+      new_element.innerHTML = myscript.innerHTML;
+      var email = new_element.querySelector('#advocate').getAttribute('value');
+
+      if (typeof email !== "undefined") {
+        $http({
+          method: 'GET',
+          url: 'https://api.actionwins.co/sharelink?email=' + encodeURIComponent(email) + '&campaign_id=' + $scope.campaign_id
+        }).then(function successCallback(response) {
+          if (typeof response.data !== "undefined") {
+            if ((response.data === "") || (response.data === "https://actionwins.co")) {
+              // probably, this is because the email in question isn't an advocate for
+              // this campaign; send an explicit opt-in for the email and campaign id
+              // to create an advocate, getting the share link that comes back when
+              // explicitly doing opt-in.  this is our one-time best effort for this case.
+              $http({
+                method: 'GET',
+                url: 'https://api.actionwins.co/optin?email=' + encodeURIComponent(email) + '&campaign_id=' + $scope.campaign_id
+              }).then(function successCallback(response1) {
+                if (typeof response1.data !== "undefined") {
+                  $scope.share_link = response1.data;
+                }
+              }, function errorCallback(response1) {
+                $scope.share_link = "https://actionwins.co";
+              });
+            } else {
+              $scope.share_link = response.data;
+            }
+          } else {
+            $scope.share_link = "https://actionwins.co";
+          }
+        }, function errorCallback(response) {
+          $scope.share_link = "https://actionwins.co";
+        });
+      };
+    };
+
+    $scope.parseRewards = function(count, jsonRewards) {
+      for (var i = 0; i < jsonRewards.length; i++) {
+        var awardAchieved = (parseInt(jsonRewards[i][1]) <= count);
+        $scope.rewards.push({ name: jsonRewards[i][0], threshold: jsonRewards[i][1], achieved: awardAchieved });
+      }
+    };
+
+    $scope.get_referral_count = function() {
+      var myscript = document.querySelector('#actionwins-referral-modal');
+      var new_element = document.createElement('html');
+      new_element.innerHTML = myscript.innerHTML;
+      var email = new_element.querySelector('#advocate').getAttribute('value');
+
+      if (typeof email !== "undefined") {
+        $http({
+          method: 'GET',
+          url: 'https://api.actionwins.co/ref_count?email=' + encodeURIComponent(email) + '&campaign_id=' + $scope.campaign_id
+        }).then(function successCallback(response) {
+          if (typeof response.data !== "undefined") {
+            $scope.ref_count = response.data;
+          } else {
+            $scope.ref_count = 0;
+          }
+        }, function errorCallback(response) {
+          $scope.ref_count = 0;
+        });
+      };
+    };
+
+    $scope.get_rewards = function() {
+      var myscript = document.querySelector('#actionwins-referral-modal');
+      var new_element = document.createElement('html');
+      new_element.innerHTML = myscript.innerHTML;
+      var email = new_element.querySelector('#advocate').getAttribute('value');
+      if (typeof email !== "undefined") {
+        $http({
+          method: 'GET',
+          url: 'https://api.actionwins.co/rb?advocate=' + encodeURIComponent(email) + '&campaign_id=' + $scope.campaign_id
+        }).then(function successCallback(response) {
+          if (typeof response.data !== "undefined") {
+            // parse reward blob and populate reward display
+            var count = parseInt(response.data['referral_count']);
+            var jsonRewards = JSON.parse(response.data['rewards']);
+            $scope.parseRewards(count, jsonRewards);
+          } else {
+            // hide reward display
+          }
+        }, function errorCallback(response) {
+          // hide reward display
+        });
+      };
+    };
+
+    $scope.campaign_name = "Driving Q";
+    $scope.campaign_id = '1c1f982aafa84a83a14226ba9fb78382';
+
+    $scope.get_share_link();
+    $scope.get_referral_count();
+    $scope.get_rewards();
+
+    $scope.sendEmail = function() {
+      var advocate_email = document.querySelector('#advocate').getAttribute('value');
+      var referred_email = document.querySelector('#aw-referral-email').value;
+      var subject = document.querySelector('#aw-referral-subject').value;
+      var body = document.querySelector('#aw-referral-body').value;
+
+      if (typeof referred_email !== "undefined") {
+        console.log('referred_email: ' + referred_email);
+        $http({
+          method: 'GET',
+          url: 'https://api.actionwins.co/share_email?advocate=' + encodeURIComponent(advocate_email) + '&referred=' + encodeURIComponent(referred_email) + '&campaign_id=' + $scope.campaign_id + '&subject=' + subject + '&body=' + body
+        }).finally(function () {
+          $scope.closeThisDialog('');
+        });
+      };
+    };
+
+    $scope.set_ngdialog_bgcolor = function() {
+      var bgcolor = document.querySelector('#bgcolor').getAttribute('value');
+      document.querySelector('.ngdialog-content').style['background'] = bgcolor;
+    };
+
+    $scope.open = function() {
+      var new_dialog = ngDialog.open({
+        id: 'action-wins-dialog',
+        template: 'actionwins-referral-modal',
+        controller: "1c1f982aafa84a83a14226ba9fb78382Controller",
+        className: 'ngdialog-theme-plain',
+        background: 'transparent',
+        scope: $scope
+      });
+      $timeout(function() {
+        $scope.set_ngdialog_bgcolor();
+      }, 100)
+    };
+
+    $scope.toggleEmail = function() {
+      $scope.emailState = !$scope.emailState;
+    };
+
+  });
+</script>
+<!-- /ACTIONWINS -->
